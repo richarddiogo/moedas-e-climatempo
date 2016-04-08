@@ -1,0 +1,85 @@
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+        table.ftq_4 ftq_5_1 {
+            width: 100% !important;
+        }
+        
+        .inlineblock {
+            width: 100% !important;
+        }
+    </style>
+    <style type="text/css">
+        #loaded {
+            display: block;
+        }
+        
+        .bwc2 {
+            float: left!Important;
+            margin-right: 17px!Important;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .bwc2:nth-child(3) {
+            margin-right: 0px!important;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="clima">
+        <div id="loaded">
+            <div id="tempo"></div>
+            <script type="text/javascript">
+                var css_file = document.createElement("link");
+                css_file.setAttribute("rel", "stylesheet");
+                css_file.setAttribute("type", "text/css");
+                css_file.setAttribute("href", 'http://s.bookcdn.com/css/w/booked-wzs-widget-160.css?v=0.0.1');
+                css_file.setAttribute("href", 'http://ibooked.com.br/css/weather.pack.3df0dc40500cb41e6e3d911be78a3cc3.css');
+
+                document.getElementsByTagName("head")[0].appendChild(css_file);
+
+                function setWidgetData(data) {
+                    if (typeof(data) != 'undefined' && data.results.length > 0) {
+                        for (var i = 0; i < data.results.length; ++i) {
+                            var htmlHref = ''
+
+                            if(data.results[i].html_code.indexOf('São Paulo') > -1){
+                                htmlHref = '<a target="_blank" href="http://www.booked.net/weather/sao-paulo-18266">'+ data.results[i].html_code + '</a>';
+                            }
+                            else if(data.results[i].html_code.indexOf('Rio de Janeiro') > -1){
+                                htmlHref = '<a target="_blank" href="http://www.booked.net/weather/rio-de-janeiro-18486">'+ data.results[i].html_code + '</a>'
+                            }
+                            else if(data.results[i].html_code.indexOf('Brasília') > -1){
+                                htmlHref = '<a target="_blank" href="http://www.booked.net/weather/brasilia-14704">' + data.results[i].html_code + '</a>'
+                            }
+                            
+                            document.getElementById('tempo').innerHTML += htmlHref;
+
+                        }
+                    } else {
+                        alert('data=undefined||data.results is empty');
+                    }
+                }
+            </script>
+
+           
+        </div>
+        <div class="BoxCotacao">
+            <span class="bg-white"></span>
+            <iframe id="iframeCotacao" frameborder="0" scrolling="no" height="108" width="337" allowtransparency="true" marginwidth="0" marginheight="0" src="http://fxrates.br.forexprostools.com/index.php?force_lang=12&pairs_ids=1617;2103;1736;&header-text-color=%23FFFFFF&header-bg=%23707070&curr-name-color=%230059b0&inner-text-color=%23000000&green-text-color=%232A8215&green-background=%23B7F4C2&red-text-color=%23DC0001&red-background=%23FFE2E2&inner-border-color=%23CBCBCB&border-color=%23cbcbcb&bg1=%23F6F6F6&bg2=%23ffffff&bid=show&ask=show&last=hide&open=hide&high=hide&low=hide&last_update=hide"></iframe><br />
+            <div style="width:335"></div>
+        </div>
+    </div>
+     <script type="text/javascript" charset="UTF-8" src="http://widgets.booked.net/weather/info?action=get_weather_info&ver=4&cityID=18266&type=23&cmetric=1&wlangID=8&color=95a5a6&wwidth=250&header_color=7f8c8d&text_color=ffffff&link_color=ffffff&border_form=1&footer_color=2071c9&footer_text_color=ffffff&transparent=0&domid=585&ltid=3458&is_need_source=1"></script>
+
+    <script type="text/javascript" charset="UTF-8" src="http://widgets.booked.net/weather/info?action=get_weather_info&ver=4&cityID=18486&type=23&cmetric=1&wlangID=8&color=95a5a6&wwidth=250&header_color=7f8c8d&text_color=ffffff&link_color=ffffff&border_form=1&footer_color=2071c9&footer_text_color=ffffff&transparent=0&domid=585&ltid=3458&is_need_source=1"></script>
+
+     <script type="text/javascript" charset="UTF-8" src="http://widgets.booked.net/weather/info?action=get_weather_info&ver=4&cityID=14704&type=23&cmetric=1&wlangID=8&color=95a5a6&wwidth=250&header_color=7f8c8d&text_color=ffffff&link_color=ffffff&border_form=1&footer_color=2071c9&footer_text_color=ffffff&transparent=0&domid=585&ltid=3458&is_need_source=1"></script>
+</body>
+
+</html>
